@@ -1,0 +1,10 @@
+command: ['streamlit', 'run', 'app.py']
+env:
+  - name: DATABRICKS_WAREHOUSE_ID
+    valueFrom: sql-warehouse
+  - name: GENIE_SPACE_ID
+    valueFrom: genie-space
+  - name: STREAMLIT_THEME_BASE
+    value: 'light'
+  - name: STREAMLIT_THEME_PRIMARY_COLOR
+    value: '#5B2A4E'
