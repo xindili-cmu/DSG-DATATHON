@@ -25,8 +25,11 @@ The tool does not promise that a suggestion is right. It shows what each record 
 | `MaaaLink_datathon.ipynb` | Everything in one notebook: the SQL and the app files |
 | `maternal_newborn_tables.sql` | Builds the mother and newborn tables and the function the app calls (version 5) |
 | `app.py`, `app.yaml`, `requirements.txt` | The Databricks App |
+| `data_pipeline.ipynb` | A teammate's data pipeline for the same dataset, in 18 steps: cleaning and location checks, flags for records that may mix facilities, a wider service list, and district coverage joined to NFHS-5. See the note below |
 
-The SQL builds on tables made earlier in the same schema (`workspace.care_finder`): the cleaned facility table `facilities_final`, the contact table `facility_contact`, and the place and PIN lookups. Those steps are not in this repository.
+The SQL builds on tables made earlier in the same schema (`workspace.care_finder`): the cleaned facility table `facilities_final`, the contact table `facility_contact`, and the place and PIN lookups. The code that built those exact tables is not in this repository.
+
+**How `data_pipeline.ipynb` relates to the app.** Its steps 0 to 7 follow the same cleaning design as the tables the app uses (9,989 facilities, the same 50 km location rule and the same location labels), but with different column names (for example `capability_list` where the app's tables have `capability_arr`). Its later steps write tables with the same names as ours (`facilities_final`, `facility_service_summary`, `service_taxonomy`) and a different structure. So the two must not be run into the same schema: run this notebook in its own workspace or schema. It also rates evidence differently: it counts a specialty tag as the strongest evidence, while the app does not count a tag as evidence at all. Saved outputs were removed from the notebook because they contained rows of the dataset; the numbers quoted in its text cells are the author's.
 
 ## How to run
 
