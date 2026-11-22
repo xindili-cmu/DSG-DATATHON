@@ -48,6 +48,12 @@ The SQL builds on tables made earlier in the same schema (`workspace.care_finder
 - Which situation or sign looks for what was decided by the team and has not been checked against a clinical source.
 - The driver-card sentences in nine Indian languages have not been checked by native speakers.
 
+## Next steps
+
+- **A view by district.** For each district: how many facilities on our lists, next to three NFHS-5 indicators (institutional births, births by C-section, four or more antenatal visits). A teammate's data pipeline already has a first version of this idea. A first check with our own lists: NFHS-5 has 706 districts; 303 districts have at least one facility on our lists; only 206 of those match an NFHS-5 district name as written, so the names must be reconciled before anything is shown. In such a view a zero means "no record in this dataset", not "no care".
+- **Stronger checks for records that mix facilities**, for example sentences that name another facility in the dataset, or several different cities in one record.
+- **Review** of the links between a situation or sign and what the tool looks for by a clinician, and of the driver-card sentences by native speakers.
+
 ## References
 
 - WHO, *Monitoring emergency obstetric care: a handbook* (2009). Comprehensive emergency obstetric care: the basic functions plus caesarean section and blood transfusion. https://www.who.int/publications-detail-redirect/9789241547734
